@@ -18,6 +18,22 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
             </plugins>
         </pluginManagement>
         <plugins>
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-shade-plugin</artifactId>
+		<version>2.4.3</version>
+		<executions>
+			<execution>
+				<phase>package</phase>
+				<goals>
+					<goal>shade</goal>
+				</goals>
+			</execution>
+		</executions>
+		<configuration>
+			<finalName>uber-${artifactId}-${version}</finalName>
+		</configuration>
+	    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -115,11 +131,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		</dependency>	   
  
   		<dependency>
-			<groupId>storm</groupId>
+			<groupId>org.apache.storm</groupId>
 			<artifactId>storm</artifactId>
-			<version>0.8.2</version>
-		</dependency>   
-        
+			<version>0.9.3.2.2.9.1-19</version>
+		</dependency>  
+
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>clojure</artifactId>
@@ -166,6 +182,22 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
           <id>cloudera-releases</id>
           <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
         </repository>
+	<repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+        <updatePolicy>never</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+      <id>HDPReleases</id>
+      <name>HDP Releases</name>
+      <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+      <layout>default</layout>
+    	</repository>
   		<repository>
 			<id>github-releases</id>
 			<url>http://oss.sonatype.org/content/repositories/github-releases/</url>

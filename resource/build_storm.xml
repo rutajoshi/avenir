@@ -3,11 +3,11 @@
 <target name="uber-jar">
     <echo>Packaging into a single uber JAR</echo>
 	<jar destfile="uber-avenir-1.0.jar">
-		<zipgroupfileset dir="/home/pranab/Projects/lib" includes="jedis-2.1.0.jar,commons-pool-1.5.5.jar" /> 
-		<zipgroupfileset dir="/home/pranab/Projects/avenir/target" includes="avenir-1.0.jar, " /> 
-		<zipgroupfileset dir="/home/pranab/Projects/chombo/target" includes="chombo-1.0.jar, " /> 
+		<zipgroupfileset dir="/home/ruta/Jars" includes="jedis-2.1.0.jar,commons-pool-1.5.5.jar,aws-java-sdk-1.3.22.jar,lucene-core-3.5.0.jar, " /> 
+		<zipgroupfileset dir="/home/ruta/avenir/target" includes="avenir-1.0.jar, " /> 
+		<zipgroupfileset dir="/home/ruta/chombo/target" includes="chombo-1.0.jar, " /> 
 		<manifest>
-			<attribute name="Main-Class" value=" org.avenir.reinforce.ReinforcementLearnerTopology" />
+			<attribute name="Main-Class" value="org.avenir.reinforce.ReinforcementLearnerTopology" />
 		</manifest>
 	</jar>
 </target>
